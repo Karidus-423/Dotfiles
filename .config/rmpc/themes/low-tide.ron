@@ -3,8 +3,8 @@
 #![enable(unwrap_variant_newtypes)]
 (
     default_album_art_path: None,
-    show_song_table_header: true,
-    draw_borders: false,
+    show_song_table_header: false,
+    draw_borders: true,
     format_tag_separator: " | ",
     browser_column_widths: [20, 38, 42],
     background_color: None,
@@ -15,74 +15,13 @@
     preview_label_style: (fg: "yellow"),
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
     tab_bar: (
-        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+        active_style: (fg: "gray", bg: "blue", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
-    borders_style: (fg: "blue"),
-    highlight_border_style: (fg: "blue"),
-	keybinds: (
-        global: {
-
-            ":":       CommandMode,
-
-            ",":       VolumeDown,
-
-            "s":       Stop,
-
-            ".":       VolumeUp,
-
-            "<Tab>":   NextTab,
-
-            "<S-Tab>": PreviousTab,
-
-            "1":       SwitchToTab("Queue"),
-
-            "2":       SwitchToTab("Albums"),
-
-			"3":       SwitchToTab("Playlists"),
-			 
-            "4":       SwitchToTab("Artists"),
-
-            "5":       SwitchToTab("Search"),
-
-            "q":       Quit,
-
-            ">":       NextTrack,
-
-            "p":       TogglePause,
-
-            "<":       PreviousTrack,
-
-            "f":       SeekForward,
-
-            "z":       ToggleRepeat,
-
-            "x":       ToggleRandom,
-
-            "c":       ToggleConsume,
-
-            "v":       ToggleSingle,
-
-            "b":       SeekBack,
-
-            "~":       ShowHelp,
-
-            "u":       Update,
-
-            "U":       Rescan,
-
-            "I":       ShowCurrentSongInfo,
-
-            "O":       ShowOutputs,
-
-            "P":       ShowDecoders,
-
-            "R":       AddRandom,
-
-        }
-	),
+    highlighted_item_style: (fg: "yellow", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "yellow", modifiers: "Bold"),
+    borders_style: (fg: "gray"),
+    highlight_border_style: (fg: "yellow", modifiers: "Bold"),
     symbols: (
         song: "",
         dir: "",
@@ -97,14 +36,14 @@
         info: (fg: "blue", bg: "black"),
         warn: (fg: "yellow", bg: "black"),
         error: (fg: "red", bg: "black"),
-        debug: (fg: "light_green", bg: "black"),
+        debug: (fg: "green", bg: "black"),
         trace: (fg: "magenta", bg: "black"),
     ),
     progress_bar: (
         symbols: ["", "▜", "▀", "▖", ""],
         track_style: (fg: "white"),
-        elapsed_style: (fg: "light_green"),
-        thumb_style: (fg: "light_green", bg: "black"),
+        elapsed_style: (fg: "green"),
+        thumb_style: (fg: "green", bg: "black"),
         use_track_when_empty: false,
     ),
     scrollbar: (
@@ -115,23 +54,23 @@
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist),
-                default: (kind: Text("Unknown"))
+            prop: (kind: Property(Title), style: (fg: "white", modifiers: "Underlined"), 
+                default: (kind: Text("Unknown")), 
             ),
-            width: "20%",
+            width: "50%",
         ),
-        (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
-            ),
-            width: "35%",
-        ),
-        (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
-            ),
-            width: "30%",
-        ),
+		(
+		 prop: (kind: Property(Artist), style: (fg: "white", modifiers: "Italic"),
+			 default: (kind: Text("Unknown"))
+			 ),
+		 width: "50%",
+		),
+        //(
+        //    prop: (kind: Property(Album), style: (fg: "white", modifiers: "Italic"),
+        //        default: (kind: Text("Unknown Album"), style: (fg: "white"))
+        //    ),
+        //    width: "10%",
+        //),
         (
             prop: (kind: Property(Duration),
                 default: (kind: Text("-"))
@@ -149,7 +88,7 @@
                     (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (modifiers: "Bold"),
+                    (kind: Property(Song(Title)), style: (modifiers: "Italic | Reversed"),
                         default: (kind: Text("No Song"), style: (modifiers: "Bold"))
                     )
                 ],
@@ -168,11 +107,7 @@
                     (kind: Text(" kbps)"))
                 ],
                 center: [
-                    (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
-                        default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))
-                    ),
-                    (kind: Text(" - ")),
-                    (kind: Property(Song(Album)),
+                    (kind: Property(Song(Album)), style: (fg: "yellow",modifiers: "Underlined | Italic"),
                         default: (kind: Text("Unknown Album"))
                     )
                 ],
@@ -186,6 +121,15 @@
                     ),
                 ]
             ),
+			(
+				left: [],
+				center: [
+                    (kind: Property(Song(Artist)), style: ( modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))
+                    ),
+				],
+				right: [],
+			),
         ],
     ),
     browser_song_format: [
@@ -207,6 +151,48 @@
     lyrics: (
         timestamp: false
     ),
+	cava: (
+
+		// symbols that will be used to draw the bar in the visualiser, in ascending order of
+
+		// fill fraction
+
+		bar_symbols: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+
+		// similar to bar_symbols but these are used for the top-down rendering, meaning for orientation
+
+		// "Horizontal" and "Top"
+
+		inverted_bar_symbols: ['▔', '🮂', '🮃', '▀', '🮄', '🮅', '🮆', '█'],
+
+
+		bg_color: "black", // background color, defaults to rmpc's bg color if not provided
+
+		bar_width: 2, // width of a single bar in columns
+
+		bar_spacing: 0, // free space between bars in columns
+
+
+		// Possible values are "Top", "Bottom" and "Horizontal". Top makes the bars go from top to
+
+		// bottom, "Bottom" is from bottom up, and "Horizontal" is split in the middle with bars going
+
+		// both down and up from there.
+
+		// Using non-default symbols with "Top" and "Horizontal" may produce undesired output.
+
+		orientation: Horizontal,
+		// Colors can be configured in three different ways: a single color, different colors
+		// per row and a gradient. You can use the same colors as everywhere else. Only specify
+		// one of these:
+
+		bar_color: Gradient({
+          0: "#869193",
+		  5: "#808b8c",
+		  70: "#798586",
+		  100:"#737f7f",
+		}),
+	),
     components: {
 		"infodeck": Split(
 				direction: Vertical,
@@ -214,11 +200,12 @@
 				panes: [
 					(
 					 pane: Pane(TabContent),
-					 size: "100%",
+					 size: "60%",
 					),
 					(
 					 pane: Pane(Cava),
-					 size: "8",
+					 borders: "TOP | BOTTOM",
+					 size: "40%",
 					),
 				],
 			),
@@ -233,15 +220,19 @@
 						),
 						(
 						 pane: Pane(Header),
-						 borders: "TOP | BOTTOM",
-						 size: "4",
+						 borders: "LEFT | RIGHT",
+						 size: "3",
 						),
 					],
 				),
 		"top": Split(
-			direction: Horizontal,
+			direction: Vertical,
 			size: "100%",
 			panes:[
+				(
+					pane: Pane(Tabs),
+					size: "3",
+				),
 				(
 					pane: Component("main_split"),
 					size: "100%",
@@ -258,45 +249,8 @@
 				),
 				(
 				 pane: Pane(ProgressBar),
-				 size: "3",
+				 size: "1",
 				),
 			],
 	),
-	    tabs: [
-        (
-            name: "Queue",
-            pane: Split(
-                direction: Horizontal,
-                panes: [
-					(
-						size: "3",
-						pane: Pane(Lyrics)
-					),
-                    (
-                        size: "60%",
-                        pane: Pane(Queue)
-                    ),
-                ],
-            ),
-        ),
-        (
-            name: "Albums",
-            pane: Split(
-				direction: Horizontal,
-				panes: [],
-			),
-        ),
-        (
-            name: "Directories",
-            pane: Pane(Directories),
-        ),
-        (
-            name: "Artists",
-            pane: Pane(Artists),
-        ),
-        (
-            name: "Playlists",
-            pane: Pane(Playlists),
-        ),
-    ],
 )
