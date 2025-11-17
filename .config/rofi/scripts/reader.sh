@@ -2,7 +2,7 @@
 
 ROFI_FB_GENERIC_FO="xdg-open"
 
-selected=$(find ~/notes/Resources -type f)
+selected=$(find ~/Notes/Resources -type f)
 
 if [ "$@" ]; then
 	file_path=$(find ~/notes/Resources -type f -name $@)

@@ -62,6 +62,7 @@
 		"tooltip": true,
 		"format": "{:%H\n%M}",
 		"tooltip-format": "{:%Y-%m-%d}",
+        "on-click": "cal -n 3 | rofi -e -",
 	},
 	"temperature": {
         "thermal-zone": 2,

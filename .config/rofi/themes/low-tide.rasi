@@ -132,3 +132,17 @@ element selected.normal {
     background-color:            var(selected);
     text-color:                  var(background);
 }
+
+/*****----- Message -----*****/
+message{
+}
+
+textbox{
+    background-color:            var(background);
+    text-color:                  var(foreground);
+    border:                      0.1em;
+	border-color: var(selected);
+	vertical-align: 1;
+	horizontal-align: 0.5;
+	markup: true;
+}
