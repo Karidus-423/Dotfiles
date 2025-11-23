@@ -2,9 +2,10 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
+	address: "/run/user/1000/mpd/socket",
     password: None,
     theme: Some("low-tide"),
-	lyrics_dir: Some("/home/karidus/Music"),
+	lyrics_dir: Some("~/Music"),
     cache_dir: Some("/home/karidus/.cache/rmpc"),
     on_song_change: None,
     volume_step: 5,
