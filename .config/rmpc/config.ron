@@ -2,7 +2,6 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    address: "/tmp/mpd_socket",
     password: None,
     theme: Some("low-tide"),
 	lyrics_dir: Some("/home/karidus/Music"),

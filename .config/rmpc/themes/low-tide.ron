@@ -89,8 +89,8 @@
                 ],
                 center: [
                     (kind: Property(Song(Title)), style: (modifiers: "Italic | Reversed"),
-                        default: (kind: Text("No Song"), style: (modifiers: "Bold"))
-                    )
+                        default: (kind: Text("No Song"), style: (modifiers: "Italic | Reversed"))
+                    ),
                 ],
                 right: [
                     (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
@@ -187,10 +187,10 @@
 		// one of these:
 
 		bar_color: Gradient({
-          0: "#869193",
-		  5: "#808b8c",
-		  70: "#798586",
-		  100:"#737f7f",
+		  0:"#737f7f",
+		  25: "#798586",
+		  65: "#808b8c",
+		  100: "#869193",
 		}),
 	),
     components: {

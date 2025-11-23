@@ -5,7 +5,7 @@ ROFI_FB_GENERIC_FO="xdg-open"
 selected=$(find ~/Notes/Resources -type f)
 
 if [ "$@" ]; then
-	file_path=$(find ~/notes/Resources -type f -name $@)
+	file_path=$(find ~/Notes/Resources -type f -name $@)
 	coproc ( "${ROFI_FB_GENERIC_FO}" "$file_path" >/dev/null 2>&1 )
 	exit 0
 fi
