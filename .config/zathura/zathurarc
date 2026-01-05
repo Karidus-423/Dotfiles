@@ -25,11 +25,11 @@ set statusbar-fg                "rgba(235,219,178,1)"  # fg
 set highlight-color             "rgba(250,189,47,0.5)" # bright:yellow
 set highlight-active-color      "rgba(254,128,25,0.5)" # bright:orange
 
-set default-bg                  "rgba(40,40,40,1)"     # bg
-set default-fg                  "rgba(235,219,178,1)"  # fg
+set default-bg                  "rgba(41, 50, 52, 1)"     # bg
+set default-fg                  "rgba(115, 127, 127, 1)"  # fg
 set render-loading              true
-set render-loading-bg           "rgba(40,40,40,1)"     # bg
-set render-loading-fg           "rgba(235,219,178,1)"  # fg
+set render-loading-bg           "rgba(41, 50, 52, 1)"     # bg
+set render-loading-fg           "rgba(115, 127, 127, 1)"  # fg
 
 # Recolor book content's color
 set recolor-lightcolor          "rgba(40,40,40,1)"     # bg

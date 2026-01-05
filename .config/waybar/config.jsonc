@@ -16,7 +16,6 @@
 		"hyprland/workspaces",
     ],
     "modules-right": [
-		"mpris",
         "pulseaudio",
         "backlight",
 		"power-profiles-daemon",
