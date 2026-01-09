@@ -1,0 +1,42 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "d918ebd",
+      "src": "https://github.com/Saghen/blink.cmp",
+      "version": "'main'"
+    },
+    "mini.clue": {
+      "rev": "6a42206",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
+    "mini.hipatterns": {
+      "rev": "5629d5f",
+      "src": "https://github.com/nvim-mini/mini.hipatterns"
+    },
+    "nvim-lspconfig": {
+      "rev": "e688b48",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "openscad.nvim": {
+      "rev": "e81d938",
+      "src": "https://github.com/salkin-mada/openscad.nvim",
+      "version": "'main'"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "b4da76b",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    }
+  }
+}
